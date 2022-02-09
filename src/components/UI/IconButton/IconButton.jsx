@@ -29,10 +29,6 @@ const IconButton = ({size, Icon}) => {
               fill: #6b59cc;
             }
         }
-        
-        &:active{
-          transform: scale(.95);
-        }
     `
 
     return (
