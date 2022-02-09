@@ -2,19 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const IconButton = ({size, Icon}) => {
+// Todo: Добавить обработчик кликов по кнопке
 
-    const BUTTON_SIZE_PADDING = {
-        small: 9,
-        medium: 11,
-        large: 12
-    }
+const BUTTON_SIZE = {
+    small: 36,
+    medium: 40,
+    large: 42
+}
 
-    const Button = styled.button`
+const Button = styled.button`
         display:flex;
         justify-content:center;
         align-items:center;
-        padding: ${BUTTON_SIZE_PADDING[size]}px;
+        
+        height: ${props => (BUTTON_SIZE[props.size])}px;
+        width: ${props => (BUTTON_SIZE[props.size])}px;
         
         outline: 0;
         border: 1px solid #ECEEF5;
@@ -31,8 +33,10 @@ const IconButton = ({size, Icon}) => {
         }
     `
 
+const IconButton = ({size, Icon}) => {
+
     return (
-        <Button>
+        <Button size={size}>
             <Icon/>
         </Button>
     );
