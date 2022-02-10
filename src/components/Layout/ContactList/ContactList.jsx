@@ -2,6 +2,7 @@ import React, {useEffect, useMemo, useState} from 'react';
 import ContactItem from "../ContactItem/ContactItem";
 import Search from "../Search/Search";
 import styled from 'styled-components';
+import LargeTitle from "../../UI/LargeTitle/LargeTitle";
 
 const ContactListWrapper = styled.div`
     display:flex;
@@ -80,23 +81,32 @@ const ContactList = ({contactsArray}) => {
 
     return (
         <div>
-            <Search setSearchQueryState={setSearchQuery}/>
+            {
+                searchedContacts.length
+                ?
+                <>
+                    <Search setSearchQueryState={setSearchQuery}/>
+                    <ContactListWrapper>
+                        {
+                            searchedContacts.map(contact => (
+                                <ContactItem
+                                    key={contact.id}
+                                    id={contact.id}
+                                    name={`${contact.name}`}
+                                    isOnline={true}
+                                    avatarUrl={contact.avatarUrl}
+                                    status={contact.status}
+                                    removeContact={removeContact}
+                                />
+                            ))
+                        }
+                    </ContactListWrapper>
+                </>
+                :
+                <LargeTitle text={"You don't have any contacts."}/>
 
-            <ContactListWrapper>
-                {
-                    searchedContacts.map(contact => (
-                        <ContactItem
-                            key={contact.id}
-                            id={contact.id}
-                            name={`${contact.name}`}
-                            isOnline={true}
-                            avatarUrl={contact.avatarUrl}
-                            status={contact.status}
-                            removeContact={removeContact}
-                        />
-                    ))
-                }
-            </ContactListWrapper>
+            }
+
 
         </div>
     );
