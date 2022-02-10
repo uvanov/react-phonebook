@@ -33,10 +33,10 @@ const Button = styled.button`
         }
     `
 
-const IconButton = ({size, Icon}) => {
+const IconButton = ({size, Icon, onClickHandler}) => {
 
     return (
-        <Button size={size}>
+        <Button size={size} onClick={onClickHandler}>
             <Icon/>
         </Button>
     );
