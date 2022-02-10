@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import ContactItem from "../ContactItem/ContactItem";
 import Search from "../Search/Search";
 import styled from 'styled-components';
@@ -14,6 +14,7 @@ const ContactListWrapper = styled.div`
 const ContactList = ({contactsArray}) => {
 
     const [contacts, setContacts] = useState(contactsArray);
+    const [searchQuery, setSearchQuery] = useState("");
 
     const removeContact = (contactId) => {
         console.log(`Remove Contact Function with id ${contactId}`);
@@ -21,17 +22,27 @@ const ContactList = ({contactsArray}) => {
         setContacts(newContactArray);
     }
 
+    // Нужно возврощать массив и его в цикл списка засунуть
+
+    const searchedContacts = useMemo(() => {
+        if (searchQuery) {
+            let filteredContactsArray = contacts.filter(contact => contact.name.includes(searchQuery));
+            return filteredContactsArray;
+        }
+        return contacts;
+    })
+
     return (
         <div>
-            <Search/>
+            <Search setSearchQueryState={setSearchQuery}/>
 
             <ContactListWrapper>
                 {
-                    contacts.map(contact => (
+                    searchedContacts.map(contact => (
                         <ContactItem
                             key={contact.id}
                             id={contact.id}
-                            name={`${contact.name} ${contact.surname}`}
+                            name={`${contact.name}`}
                             isOnline={true}
                             avatarUrl={contact.avatarUrl}
                             status={contact.status}

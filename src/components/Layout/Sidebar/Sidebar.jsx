@@ -32,8 +32,7 @@ const ContactListWrapper = styled.div`
 const CONTACTS = [
     {
         id: 1,
-        name: 'Ruslan',
-        surname: 'Balashov',
+        name: 'Ruslan Balashov',
         avatarUrl: "https://sun9-10.userapi.com/s/v1/ig2/RL0Wx20a1skO0buTQeNRgSiq46Ujt92GyUNInixRSDmf5CFtHFf5k-Q67Za66MVzMJ8kg5d5EKfvj1tB73Py-YFD.jpg?size=50x50&quality=95&crop=26,0,2533,2533&ava=1",
         status: '3D Designer',
         email: 'reslan.balashov@gmail.com',
@@ -48,8 +47,7 @@ const CONTACTS = [
     },
     {
         id: 2,
-        name: 'Alex',
-        surname: 'Holodniy',
+        name: 'Alex Holodniy',
         avatarUrl: "https://sun9-40.userapi.com/s/v1/ig2/6iWzUVDiR3PrGSo6U2kFLxd_m4lJmpuNovcl7mjGzWM0W95jbQ9x_4o4w3Mrb33V7As4WGP6cjZPrZT1Uwp1DJ_G.jpg?size=50x50&quality=96&crop=132,237,933,933&ava=1",
         status: 'Python Developer',
         email: 'alex.holodniy@gmail.com',
