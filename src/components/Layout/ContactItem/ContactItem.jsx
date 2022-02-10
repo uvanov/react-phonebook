@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// TODO: Добавить алёрт о недоступности звонка
+
 // Import Assets
 
 import {ReactComponent as MessageIcon} from "../../../media/icons/message.svg";
@@ -53,7 +55,7 @@ const ContactButtons = styled.div`
         gap: 6px;
 `
 
-const ContactItem = ({ avatarUrl, isOnline, name, status, messageContact, removeContact }) => {
+const ContactItem = ({ id, avatarUrl, isOnline, name, status, messageContact, removeContact }) => {
     return (
         <div>
             <ContactItemWrapper>
@@ -68,7 +70,7 @@ const ContactItem = ({ avatarUrl, isOnline, name, status, messageContact, remove
                 <ContactButtons>
                     <IconButton size={'medium'} Icon={MessageIcon}/>
                     <IconButton size={'medium'} Icon={CallIcon}/>
-                    <IconButton size={'medium'} Icon={RemoveIcon}/>
+                    <IconButton size={'medium'} Icon={RemoveIcon} onClickHandler={() => removeContact(id)}/>
                 </ContactButtons>
             </ContactItemWrapper>
         </div>
