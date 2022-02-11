@@ -32,8 +32,7 @@ const ContactListWrapper = styled.div`
 
 
 
-const Sidebar = ({opened}) => {
-
+const Sidebar = ({contacts, setContacts}) => {
 
     return (
         <SidebarWrapper>
@@ -43,7 +42,7 @@ const Sidebar = ({opened}) => {
             </SidebarHeader>
 
             <ContactListWrapper>
-                <ContactList/>
+                <ContactList contacts={contacts} setContacts={setContacts}/>
             </ContactListWrapper>
 
         </SidebarWrapper>
