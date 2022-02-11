@@ -9,7 +9,9 @@ const useFetch = (url) => {
             .then(data => setData(data))
     }, [url]);
 
-    return data;
+    console.log(`useFetch Debug:`, data);
+
+    return {...data};
 }
 
 export default useFetch;
