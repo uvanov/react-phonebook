@@ -44,11 +44,11 @@ const ContactList = ({contacts, setContacts}) => {
                             searchedContacts.map(contact => (
                                 <ContactItem
                                     key={contact.id}
-                                    id={contact.id}
-                                    name={`${contact.name}`}
+                                    contactId={contact.id}
+                                    contactName={`${contact.name}`}
                                     isOnline={true}
                                     avatarUrl={contact.avatarUrl}
-                                    status={contact.status}
+                                    contactStatus={contact.status}
                                     removeContact={removeContact}
                                 />
                             ))

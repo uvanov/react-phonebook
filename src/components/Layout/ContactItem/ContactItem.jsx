@@ -62,7 +62,7 @@ const ContactButtons = styled.div`
         gap: 6px;
 `
 
-const ContactItem = ({ id, avatarUrl, isOnline, name, status, messageContact, removeContact }) => {
+const ContactItem = ({ contactId, avatarUrl, isOnline, contactName, contactStatus, messageContact, removeContact }) => {
     return (
         <div>
             <ContactItemWrapper>
@@ -71,13 +71,13 @@ const ContactItem = ({ id, avatarUrl, isOnline, name, status, messageContact, re
                     <ContactOnlineMarker online={isOnline}/>
                 </ContactImageWrapper>
                 <ContactInformation>
-                    <ContactName>{name}</ContactName>
-                    <ContactStatus>{status}</ContactStatus>
+                    <ContactName>{contactName}</ContactName>
+                    <ContactStatus>{contactStatus}</ContactStatus>
                 </ContactInformation>
                 <ContactButtons>
                     <IconButton size={'medium'} Icon={MessageIcon}/>
                     <IconButton size={'medium'} Icon={CallIcon}/>
-                    <IconButton size={'medium'} Icon={RemoveIcon} onClickHandler={() => removeContact(id)}/>
+                    <IconButton size={'medium'} Icon={RemoveIcon} onClickHandler={() => removeContact(contactId)}/>
                 </ContactButtons>
             </ContactItemWrapper>
         </div>
