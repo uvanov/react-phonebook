@@ -3,6 +3,7 @@ import Navigation from "./components/Layout/Navigation/Navigation";
 import styled from 'styled-components';
 import Sidebar from "./components/Layout/Sidebar/Sidebar";
 import ContactInformation from "./components/Layout/ContactInformation/ContactInformation";
+import Content from "./components/Layout/Content/Content";
 
 
 const AppLayout = styled.div`
@@ -10,7 +11,6 @@ const AppLayout = styled.div`
         grid-template-columns: 84px 1.1fr 2fr;
         height: 100%;
 `
-
 
 
 const App = () => {
@@ -67,12 +67,25 @@ const App = () => {
         <AppLayout>
             <Navigation/>
             <Sidebar contacts={contacts} setContacts={setContacts}/>
-            <ContactInformation
-                id={5}
-                status={"Python Developer"}
-                name={"Alex Holodniy"}
-                avatarUrl={"https://sun9-40.userapi.com/s/v1/ig2/Ua_rQ8pYWG6h-IIeZ0SU1KWglykOMUlqrfBGesHMULBqzCLi4B8Ogae9DjPfSqUa05-tIO6qaWxil5_Kjf5sN_mT.jpg?size=200x266&quality=96&crop=0,0,1104,1472&ava=1"}
-            />
+            <Content/>
+            {/*<ContactInformation*/}
+            {/*    id={5}*/}
+            {/*    status={"Python Developer"}*/}
+            {/*    name={"Alex Holodniy"}*/}
+            {/*    avatarUrl={"https://sun9-40.userapi.com/s/v1/ig2/Ua_rQ8pYWG6h-IIeZ0SU1KWglykOMUlqrfBGesHMULBqzCLi4B8Ogae9DjPfSqUa05-tIO6qaWxil5_Kjf5sN_mT.jpg?size=200x266&quality=96&crop=0,0,1104,1472&ava=1"}*/}
+            {/*    contactInformationSections={[*/}
+            {/*        {*/}
+            {/*            title: "Bio",*/}
+            {/*            template: "text",*/}
+            {/*            inner: "Some fun text, which tells about myself"*/}
+            {/*        },*/}
+            {/*        {*/}
+            {/*            title: "Social",*/}
+            {/*            template: "children",*/}
+            {/*            inner: "// Here we pass children (buttons) //"*/}
+            {/*        }*/}
+            {/*    ]}*/}
+            {/*/>*/}
             {/*  Here place <Content/>, inside Content place <UserControls/> (aka header), <ContactInformation/> and <Chat/>  */}
         </AppLayout>
     );
