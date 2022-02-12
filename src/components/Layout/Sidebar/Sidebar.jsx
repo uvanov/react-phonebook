@@ -32,7 +32,7 @@ const ContactListWrapper = styled.div`
 
 
 
-const Sidebar = ({contacts, setContacts}) => {
+const Sidebar = ({contacts, setContacts, setSelectedContactId}) => {
 
     return (
         <SidebarWrapper>
@@ -42,7 +42,7 @@ const Sidebar = ({contacts, setContacts}) => {
             </SidebarHeader>
 
             <ContactListWrapper>
-                <ContactList contacts={contacts} setContacts={setContacts}/>
+                <ContactList contacts={contacts} setContacts={setContacts} setSelectedContactId={setSelectedContactId}/>
             </ContactListWrapper>
 
         </SidebarWrapper>

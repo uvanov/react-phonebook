@@ -62,10 +62,10 @@ const ContactButtons = styled.div`
         gap: 6px;
 `
 
-const ContactItem = ({ contactId, avatarUrl, isOnline, contactName, contactStatus, messageContact, removeContact }) => {
+const ContactItem = ({ contactId, avatarUrl, isOnline, contactName, contactStatus, messageContact, removeContact, setSelectedContactId }) => {
     return (
-        <div>
-            <ContactItemWrapper>
+        <>
+            <ContactItemWrapper onClick={() => setSelectedContactId(contactId)}>
                 <ContactImageWrapper>
                     <ContactImage src={avatarUrl}/>
                     <ContactOnlineMarker online={isOnline}/>
@@ -80,7 +80,7 @@ const ContactItem = ({ contactId, avatarUrl, isOnline, contactName, contactStatu
                     <IconButton size={'medium'} Icon={RemoveIcon} onClickHandler={() => removeContact(contactId)}/>
                 </ContactButtons>
             </ContactItemWrapper>
-        </div>
+        </>
     );
 };
 

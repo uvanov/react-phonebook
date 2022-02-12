@@ -12,7 +12,7 @@ const ContactListWrapper = styled.div`
 `
 
 
-const ContactList = ({contacts, setContacts}) => {
+const ContactList = ({contacts, setContacts, setSelectedContactId}) => {
 
     const [searchQuery, setSearchQuery] = useState("");
 
@@ -50,6 +50,7 @@ const ContactList = ({contacts, setContacts}) => {
                                     avatarUrl={contact.avatarUrl}
                                     contactStatus={contact.status}
                                     removeContact={removeContact}
+                                    setSelectedContactId={setSelectedContactId}
                                 />
                             ))
                         }

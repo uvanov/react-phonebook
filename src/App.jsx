@@ -61,10 +61,11 @@ const App = () => {
         }
     ])
     const [selectedContactId, setSelectedContactId] = useState(0);
+
     return (
         <AppLayout>
             <Navigation/>
-            <Sidebar contacts={contacts} setContacts={setContacts}/>
+            <Sidebar contacts={contacts} setContacts={setContacts} setSelectedContactId={setSelectedContactId}/>
             <Content/>
             {/*  Here place <Content/>, inside Content place <UserControls/> (aka header), <ContactInformation/> and <Chat/>  */}
         </AppLayout>
