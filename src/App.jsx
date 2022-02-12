@@ -60,6 +60,7 @@ const App = () => {
             }
         }
     ])
+    const [selectedContactId, setSelectedContactId] = useState(0);
     return (
         <AppLayout>
             <Navigation/>
