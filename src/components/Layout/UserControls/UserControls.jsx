@@ -36,6 +36,8 @@ const Separator = styled.div`
     background: #d2d2db;
 `
 
+// TODO: Make search functionality for search-button
+
 const UserControls = () => {
     return (
         <UserControlsWrapper>
