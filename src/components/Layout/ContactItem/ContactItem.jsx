@@ -16,6 +16,13 @@ const ContactItemWrapper = styled.div`
     display: grid;
     grid-template-columns: 36px 3fr 2fr;
     column-gap: 18px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 2px;
+    
+    &:hover{
+      background: rgba(208,202,255,0.32);
+    }
 `
 const ContactImageWrapper = styled.div`
     position:relative;
