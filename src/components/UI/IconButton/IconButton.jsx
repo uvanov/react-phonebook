@@ -1,9 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-// Todo: Добавить обработчик кликов по кнопке
-
 const BUTTON_SIZE = {
     small: 36,
     medium: 40,
