@@ -65,14 +65,14 @@ const App = () => {
         let user = contacts.find(contact => contact.id === selectedContactId);
 
         return user ? user : null;
-    }, [selectedContactId])
+    }, [selectedContactId, contacts]);
 
 
     return (
         <AppLayout>
             <Navigation/>
             <Sidebar contacts={contacts} setContacts={setContacts} setSelectedContactId={setSelectedContactId}/>
-            <Content/>
+            <Content selectedContact={selectedContact}/>
             {/*  Here place <Content/>, inside Content place <UserControls/> (aka header), <ContactInformation/> and <Chat/>  */}
         </AppLayout>
     );

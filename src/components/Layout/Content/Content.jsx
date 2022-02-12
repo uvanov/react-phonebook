@@ -13,38 +13,14 @@ const ContentInnerWrapper = styled.div`
     box-sizing: border-box;
 `
 
-const Content = () => {
+const Content = ({selectedContact}) => {
     return (
         <div>
             <UserControls/>
 
             <ContentInnerWrapper>
                 <ContactInformation
-                    contactId={5}
-                    contactStatus={"Python Developer"}
-                    contactName={"Alex Holodniy"}
-                    avatarUrl={"https://sun9-40.userapi.com/s/v1/ig2/Ua_rQ8pYWG6h-IIeZ0SU1KWglykOMUlqrfBGesHMULBqzCLi4B8Ogae9DjPfSqUa05-tIO6qaWxil5_Kjf5sN_mT.jpg?size=200x266&quality=96&crop=0,0,1104,1472&ava=1"}
-                    contactInformationSections={[
-                        {
-                            title: "Bio",
-                            template: "text",
-                            inner: "When I first got into the advertising, I was looking for the magical combination that would put website into the top search engine rankings"
-                        },
-                        {
-                            title: "Email",
-                            template: "text",
-                            inner: "alex.holodok@gmail.com"
-                        },
-                        {
-                            title: "Phone",
-                            inner: "439-582-1578"
-                        },
-                        {
-                            title: "Social",
-                            template: "children",
-                            inner: "// Here we pass children (buttons) //"
-                        }
-                    ]}
+                    selectedContact={selectedContact}
                 />
             </ContentInnerWrapper>
         </div>

@@ -69,15 +69,19 @@ const ContactInformationGrid = styled.div`
 
 
 
-const ContactInformation = ({contactId, avatarUrl, contactName, contactStatus, contactInformationSections}) => {
-    return (
-        <div>
+const ContactInformation = ({selectedContact}) => {
+    if(selectedContact === null){
+        return (
+            <h1>Need to select contact.</h1>
+        )
+    } else {
+        return (
             <ContactInformationGrid>
                 <Header>
-                    <HeaderImage source={avatarUrl}/>
+                    <HeaderImage source={selectedContact.avatarUrl}/>
                     <HeaderInformation>
-                        <LargeTitle text={contactName}/>
-                        <Subtitle text={contactStatus}/>
+                        <LargeTitle text={selectedContact.name}/>
+                        <Subtitle text={selectedContact.status}/>
                         <HeaderButtons>
                             <MessageButton/>
                             <IconButton size={"large"} Icon={CallIcon}/>
@@ -85,19 +89,9 @@ const ContactInformation = ({contactId, avatarUrl, contactName, contactStatus, c
                         </HeaderButtons>
                     </HeaderInformation>
                 </Header>
-
-                {
-                    contactInformationSections.map(informationSection => (
-                        <AboutSection
-                            title={informationSection.title}
-                            template={informationSection.template}
-                            inner={informationSection.inner}
-                        />
-                    ))
-                }
             </ContactInformationGrid>
-        </div>
-    );
+        )
+    }
 };
 
 export default ContactInformation;
