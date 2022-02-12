@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import Navigation from "./components/Layout/Navigation/Navigation";
 import styled from 'styled-components';
 import Sidebar from "./components/Layout/Sidebar/Sidebar";
@@ -61,6 +61,12 @@ const App = () => {
         }
     ])
     const [selectedContactId, setSelectedContactId] = useState(0);
+    const selectedContact = useMemo(() => {
+        let user = contacts.find(contact => contact.id === selectedContactId);
+
+        return user ? user : null;
+    }, [selectedContactId])
+
 
     return (
         <AppLayout>
