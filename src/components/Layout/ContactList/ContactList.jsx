@@ -1,8 +1,7 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import ContactItem from "../ContactItem/ContactItem";
 import Search from "../Search/Search";
 import styled from 'styled-components';
-import LargeTitle from "../../UI/LargeTitle/LargeTitle";
 import NoContactsError from "../NoContactsError/NoContactsError";
 
 const ContactListWrapper = styled.div`

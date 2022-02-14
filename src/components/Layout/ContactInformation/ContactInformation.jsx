@@ -14,24 +14,6 @@ import {ReactComponent as CallIcon} from "../../../media/icons/call.svg";
 import {ReactComponent as RemoveIcon} from "../../../media/icons/remove.svg";
 import AboutSection from "../AboutSection/AboutSection";
 
-/*
-    TODO: Components to create:
-        - about-section
-*/
-
-let informationFormatExample = [
-    {
-        title: "Bio",
-        template: "text",
-        text: "Some fun text, which tells about myself"
-    },
-    {
-        title: "Social",
-        template: "children",
-        children: "// Here we pass children (buttons) //"
-    }
-]
-
 
 const Header = styled.div`
     display:flex;

@@ -4,7 +4,6 @@ import ContactInformation from "../ContactInformation/ContactInformation";
 
 // Import Components
 import UserControls from "../UserControls/UserControls";
-import IconButton from "../../UI/IconButton/IconButton";
 
 // Styled Components
 
