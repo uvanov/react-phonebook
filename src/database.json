@@ -1,0 +1,19 @@
+[
+  {
+    "id": 1,
+    "name": "Johanna Stevens",
+    "status": "UI/UX Designer",
+    "avatarUrl": "",
+    "information": {
+      "bio": "When I first got into the advertising, I was looking for the magical combination that would put website into the top search engine rankings",
+      "email": "johanna.stevens@gmail.com",
+      "phone": "439-582-1578",
+      "social": {
+        "facebook": "example",
+        "twitter": "example",
+        "linkedin": "example",
+        "telegram": "example"
+      }
+    }
+  }
+]
