@@ -1,8 +1,8 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import ContactItem from "../ContactItem/ContactItem";
 import Search from "../Search/Search";
 import styled from 'styled-components';
-import LargeTitle from "../../UI/LargeTitle/LargeTitle";
+import NoContactsError from "../NoContactsError/NoContactsError";
 
 const ContactListWrapper = styled.div`
     display:flex;
@@ -29,30 +29,31 @@ const ContactList = ({contacts, setContacts, setSelectedContactId, removeContact
 
     return (
         <div>
+            <Search setSearchQueryState={setSearchQuery}/>
             {
                 searchedContacts.length
-                ?
-                <>
-                    <Search setSearchQueryState={setSearchQuery}/>
-                    <ContactListWrapper>
-                        {
-                            searchedContacts.map(contact => (
-                                <ContactItem
-                                    key={contact.id}
-                                    contactId={contact.id}
-                                    contactName={`${contact.name}`}
-                                    isOnline={true}
-                                    avatarUrl={contact.avatarUrl}
-                                    contactStatus={contact.status}
-                                    removeContact={removeContactFunction}
-                                    setSelectedContactId={setSelectedContactId}
-                                />
-                            ))
-                        }
-                    </ContactListWrapper>
-                </>
-                :
-                <LargeTitle text={"You don't have any contacts."}/>
+                    ?
+                    <>
+                        <ContactListWrapper>
+                            {
+                                searchedContacts.map(contact => (
+                                    <ContactItem
+                                        key={contact.id}
+                                        contactId={contact.id}
+                                        contactName={`${contact.name}`}
+                                        isOnline={true}
+                                        avatarUrl={contact.avatarUrl}
+                                        contactStatus={contact.status}
+                                        removeContact={removeContactFunction}
+                                        setSelectedContactId={setSelectedContactId}
+                                    />
+                                ))
+                            }
+                        </ContactListWrapper>
+                    </>
+                    :
+                    <NoContactsError searchQuery={searchQuery}/>
+
 
             }
 
