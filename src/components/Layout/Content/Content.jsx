@@ -13,7 +13,7 @@ const ContentInnerWrapper = styled.div`
     box-sizing: border-box;
 `
 
-const Content = ({selectedContact}) => {
+const Content = ({selectedContact, removeContactFunction}) => {
     return (
         <div>
             <UserControls/>
@@ -21,6 +21,7 @@ const Content = ({selectedContact}) => {
             <ContentInnerWrapper>
                 <ContactInformation
                     selectedContact={selectedContact}
+                    removeContactFunction={removeContactFunction}
                 />
             </ContentInnerWrapper>
         </div>

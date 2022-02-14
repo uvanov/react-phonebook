@@ -69,7 +69,7 @@ const ContactInformationGrid = styled.div`
 
 
 
-const ContactInformation = ({selectedContact}) => {
+const ContactInformation = ({selectedContact, removeContactFunction}) => {
     if(selectedContact === null){
         return (
             <h1>Need to select contact.</h1>
@@ -85,7 +85,7 @@ const ContactInformation = ({selectedContact}) => {
                         <HeaderButtons>
                             <MessageButton/>
                             <IconButton size={"large"} Icon={CallIcon}/>
-                            <IconButton size={"large"} Icon={RemoveIcon}/>
+                            <IconButton size={"large"} Icon={RemoveIcon} onClickHandler={() => removeContactFunction(selectedContact.id)}/>
                         </HeaderButtons>
                     </HeaderInformation>
                 </Header>
