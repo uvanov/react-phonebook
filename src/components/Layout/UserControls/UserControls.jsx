@@ -17,8 +17,10 @@ const UserControlsWrapper = styled.div`
     justify-content:flex-end;
     align-items:center;
     gap: 15px;
-    padding: 22px 32px;
+    padding: 0 32px;
+    height: 84px;
     border-bottom: 2px solid #ECEEF5;
+    box-sizing: border-box;
 `
 const UserAvatar = styled.img`
     width: 40px;

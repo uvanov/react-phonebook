@@ -17,8 +17,9 @@ const SidebarHeader = styled.div`
     display:flex;
     align-items:center;
     gap: 15px;
-    padding: 22px 32px;
-    
+    padding: 0 32px;
+    height: 84px;
+    box-sizing: border-box;
     border-bottom: 2px solid #ECEEF5;
 `
 const ContactListWrapper = styled.div`
@@ -32,7 +33,7 @@ const ContactListWrapper = styled.div`
 
 
 
-const Sidebar = ({contacts, setContacts, setSelectedContactId}) => {
+const Sidebar = ({contacts, setContacts, setSelectedContactId, removeContactFunction}) => {
 
     return (
         <SidebarWrapper>
@@ -42,7 +43,7 @@ const Sidebar = ({contacts, setContacts, setSelectedContactId}) => {
             </SidebarHeader>
 
             <ContactListWrapper>
-                <ContactList contacts={contacts} setContacts={setContacts} setSelectedContactId={setSelectedContactId}/>
+                <ContactList contacts={contacts} setContacts={setContacts} setSelectedContactId={setSelectedContactId} removeContactFunction={removeContactFunction}/>
             </ContactListWrapper>
 
         </SidebarWrapper>
