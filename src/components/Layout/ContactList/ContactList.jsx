@@ -12,15 +12,10 @@ const ContactListWrapper = styled.div`
 `
 
 
-const ContactList = ({contacts, setContacts, setSelectedContactId}) => {
+const ContactList = ({contacts, setContacts, setSelectedContactId, removeContactFunction}) => {
 
     const [searchQuery, setSearchQuery] = useState("");
 
-    const removeContact = (contactId) => {
-        console.log(`Remove Contact Function with id ${contactId}`);
-        let newContactArray = contacts.filter(contact => contact.id !== contactId);
-        setContacts(newContactArray);
-    }
 
     // Нужно возврощать массив и его в цикл списка засунуть
 
@@ -49,7 +44,7 @@ const ContactList = ({contacts, setContacts, setSelectedContactId}) => {
                                     isOnline={true}
                                     avatarUrl={contact.avatarUrl}
                                     contactStatus={contact.status}
-                                    removeContact={removeContact}
+                                    removeContact={removeContactFunction}
                                     setSelectedContactId={setSelectedContactId}
                                 />
                             ))
