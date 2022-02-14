@@ -29,11 +29,11 @@ const ContactList = ({contacts, setContacts, setSelectedContactId, removeContact
 
     return (
         <div>
+            <Search setSearchQueryState={setSearchQuery}/>
             {
                 searchedContacts.length
                 ?
                 <>
-                    <Search setSearchQueryState={setSearchQuery}/>
                     <ContactListWrapper>
                         {
                             searchedContacts.map(contact => (
