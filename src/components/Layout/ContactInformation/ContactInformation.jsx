@@ -47,6 +47,7 @@ const ContactInformationGrid = styled.div`
     display: grid;
     grid-template-columns: .5fr 5fr;
     row-gap: 25px;
+    column-gap: 34px;
 `
 
 
