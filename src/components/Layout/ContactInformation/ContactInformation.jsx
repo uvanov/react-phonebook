@@ -73,6 +73,8 @@ const ContactInformation = ({selectedContact, removeContactFunction}) => {
                 </Header>
             </ContactInformationGrid>
         )
+
+    //    Todo: Show information about contact
     }
 };
 
