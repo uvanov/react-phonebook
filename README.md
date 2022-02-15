@@ -1,5 +1,7 @@
 # React Phonebook Application
 
+![](https://i.imgur.com/czVeuG7.png)
+
 I needed to so some work-example to show my skills. TodoList and TicTacToe it's too banally.
 I think phonebook is more interesting.  
 
