@@ -12,7 +12,7 @@ import IconButton from "../../UI/IconButton/IconButton";
 
 import {ReactComponent as CallIcon} from "../../../media/icons/call.svg";
 import {ReactComponent as RemoveIcon} from "../../../media/icons/remove.svg";
-import AboutSection from "../AboutSection/AboutSection";
+import AboutContactList from "../AboutContactList/AboutContactList";
 
 
 const Header = styled.div`
@@ -47,6 +47,8 @@ const ContactInformationGrid = styled.div`
     display: grid;
     grid-template-columns: .5fr 5fr;
     row-gap: 25px;
+    column-gap: 34px;
+    max-width: 600px;
 `
 
 
@@ -71,9 +73,10 @@ const ContactInformation = ({selectedContact, removeContactFunction}) => {
                         </HeaderButtons>
                     </HeaderInformation>
                 </Header>
+
+                <AboutContactList contactInformation={selectedContact.information}/>
             </ContactInformationGrid>
         )
-
     //    Todo: Show information about contact
     }
 };
