@@ -12,7 +12,6 @@ import IconButton from "../../UI/IconButton/IconButton";
 
 import {ReactComponent as CallIcon} from "../../../media/icons/call.svg";
 import {ReactComponent as RemoveIcon} from "../../../media/icons/remove.svg";
-import AboutSection from "../AboutSection/AboutSection";
 
 
 const Header = styled.div`
