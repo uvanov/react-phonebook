@@ -37,7 +37,7 @@ const SocialList = ({socialLinks}) => {
                     let link = socialLinks[key];
 
                     return (
-                        <a href={link} target="_blank" key={index} >
+                        <a href={link} target="_blank" rel="noreferrer" key={index} >
                             <IconButton Icon={ICONS[key]} size={"medium"}/>
                         </a>
                     )
