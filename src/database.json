@@ -10,26 +10,10 @@
       "phone": "439-582-1578",
       "social": {
         "facebook": "example",
+        "pinterest": "example",
         "twitter": "example",
         "linkedin": "example",
-        "telegram": "example"
-      }
-    }
-  },
-  {
-    "id": 2,
-    "name": "Alexandr Holodniy",
-    "status": "Python Developer",
-    "avatarUrl": "https://i.imgur.com/CFNhOBR.png",
-    "information": {
-      "bio": "I'm too lazy, to write bio for all contacts, so...lorem lorem lorem very very lorem lorem lorem lorem lorem, and finally - LOREM. ",
-      "email": "alex.holodniy@gmail.com",
-      "phone": "439-582-1578",
-      "social": {
-        "facebook": "holodniy",
-        "twitter": "holodniy",
-        "linkedin": "holodniy",
-        "telegram": "holodniy"
+        "google": "example"
       }
     }
   }
