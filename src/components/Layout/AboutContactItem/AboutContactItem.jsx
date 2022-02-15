@@ -1,10 +1,11 @@
 import React from 'react';
 
-const AboutContactItem = () => {
+const AboutContactItem = ({title, children}) => {
     return (
-        <div>
-            
-        </div>
+        <>
+            <span>{title}</span>
+            <div>{children}</div>
+        </>
     );
 };
 
