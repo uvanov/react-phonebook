@@ -5,9 +5,9 @@ import React, {useMemo, useState} from 'react';
 import styled from '@emotion/styled';
 
 // Local modules
-import { Navigation } from "./components/layout/Navigation";
-import { Sidebar } from "./components/layout/Sidebar";
-import { Content } from "./components/layout/Content";
+import { Navigation } from "@layout/Navigation";
+import { Sidebar } from "@layout/Sidebar";
+import { Content } from "@layout/Content";
 import database from './database.json';
 
 // Styled Components
