@@ -5,7 +5,7 @@ import React, {useMemo, useState} from 'react';
 import styled from '@emotion/styled';
 
 // Local modules
-import Navigation from "./components/layout/Navigation";
+import { Navigation } from "./components/layout/Navigation";
 import { Sidebar } from "./components/layout/Sidebar";
 import { Content } from "./components/layout/Content";
 import database from './database.json';
@@ -35,7 +35,7 @@ export const App = () => {
 
   return (
     <AppLayout>
-      {/*<Navigation/>*/}
+      <Navigation isOpened={true}/>
       <Sidebar contacts={contacts} setContacts={setContacts} setSelectedContactId={setSelectedContactId}
                removeContactFunction={removeContactFunction}/>
       <Content selectedContact={selectedContact} removeContactFunction={removeContactFunction}/>

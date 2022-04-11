@@ -1,48 +1,45 @@
+// Import modules
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
-// Import media
+// Assets
+import { ReactComponent as MessageIcon } from '../../media/icons/message.svg';
 
-import { ReactComponent as MessageIcon } from '../../../media/icons/message.svg';
-
-
-
+// Styled Components
 const Button = styled.button`
-    display:flex;
-    align-items:center;
-    gap: 6px;
+  display:flex;
+  align-items:center;
+  gap: 6px;
     
-    background: #6B59CC;
-    border-radius: 10px;
+  background: #6B59CC;
+  border-radius: 10px;
     
-    padding: 11px 17px;
+  padding: 11px 17px;
     
-    outline: 0;
-    border: 0;
+  outline: 0;
+  border: 0;
     
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
     
-    cursor: pointer;
+  cursor: pointer;
     
-    * {
-      fill: white;
-    }
+  * {
+    fill: white;
+  }
     
-    &:hover{
-      background: #50439f;
-    }
-`
+  &:hover{
+    background: #50439f;
+  }
+`;
 
-
-const MessageButton = () => {
-    return (
-        <Button>
-            <MessageIcon/>
-            <span>Message</span>
-        </Button>
-    );
+export const MessageButton = () => {
+  return (
+    <Button>
+      <MessageIcon/>
+      <span>Message</span>
+    </Button>
+  );
 };
 
-export default MessageButton;

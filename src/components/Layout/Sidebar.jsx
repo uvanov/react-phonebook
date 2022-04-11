@@ -3,17 +3,19 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 // Local modules
-import IconButton from "../ui/IconButton";
-import LargeTitle from "../ui/LargeTitle";
-import ContactList from "../layout/ContactList";
+import {
+  IconButton,
+  LargeTitle
+} from '../ui';
+import { ContactList } from './ContactList';
 
 // Assets
-import { ReactComponent as NavigationButton } from "../../media/icons/burger.svg";
+import { ReactComponent as NavigationButton } from '../../media/icons/burger.svg';
 
 // Styled Components
 const SidebarWrapper = styled.div`
   background-color: #FAF9FF;
-`
+`;
 
 const SidebarHeader = styled.div`
   display:flex;
@@ -23,35 +25,32 @@ const SidebarHeader = styled.div`
   height: 84px;
   box-sizing: border-box;
   border-bottom: 2px solid #ECEEF5;
-`
+`;
 
 const ContactListWrapper = styled.div`
   padding: 28px 32px 34px 32px;
   height: auto;
-`
+`;
 
 // Exports
-export const Sidebar = ({ contacts, setContacts, setSelectedContactId, removeContactFunction }) => {
-    return (
-        <SidebarWrapper>
-            <SidebarHeader>
-                <IconButton
-                  size={ "medium" }
-                  Icon={ NavigationButton }
-                />
-                <LargeTitle text={ "Contacts" }/>
-            </SidebarHeader>
+export const Sidebar = ({ contacts, setContacts, setSelectedContactId, removeContactFunction }) => (
+  <SidebarWrapper>
+    <SidebarHeader>
+      <IconButton
+        size={ 'medium' }
+        Icon={ NavigationButton }
+      />
+      <LargeTitle text={ 'Contacts' }/>
+    </SidebarHeader>
 
-            <ContactListWrapper>
-                <ContactList
-                  contacts={ contacts }
-                  setContacts={ setContacts }
-                  setSelectedContactId={ setSelectedContactId }
-                  removeContactFunction={ removeContactFunction }
-                />
-            </ContactListWrapper>
-        </SidebarWrapper>
-    );
-};
+    <ContactListWrapper>
+      <ContactList
+        contacts={ contacts }
+        setContacts={ setContacts }
+        setSelectedContactId={ setSelectedContactId }
+        removeContactFunction={ removeContactFunction }
+      />
+    </ContactListWrapper>
+  </SidebarWrapper>
+);
 
-export default Sidebar;

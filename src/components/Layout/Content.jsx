@@ -3,8 +3,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 // Local modules
-import ContactInformation from '../layout/ContactInformation';
-import UserControls from '../layout/UserControls';
+import { ContactInformation } from './ContactInformation';
+import { UserControls } from './UserControls';
 
 // Styled Components
 const ContentInnerWrapper = styled.div`
@@ -14,14 +14,14 @@ const ContentInnerWrapper = styled.div`
 
 // Exports
 export const Content = ({ selectedContact, removeContactFunction }) => (
-    <div>
-      <UserControls/>
-      <ContentInnerWrapper>
-        <ContactInformation
-          selectedContact={ selectedContact }
-          removeContactFunction={ removeContactFunction }
-        />
-      </ContentInnerWrapper>
-    </div>
+  <div>
+    <UserControls/>
+    <ContentInnerWrapper>
+      <ContactInformation
+        selectedContact={ selectedContact }
+        removeContactFunction={ removeContactFunction }
+      />
+    </ContentInnerWrapper>
+  </div>
 );
 
