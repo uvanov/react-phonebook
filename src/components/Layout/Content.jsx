@@ -1,12 +1,12 @@
+// Import modules
 import React from 'react';
 import styled from "styled-components";
-import ContactInformation from "../ContactInformation/ContactInformation";
 
-// Import Components
-import UserControls from "../UserControls/UserControls";
+// Local modules
+import ContactInformation from "@layout/ContactInformation";
+import UserControls from "@layout/UserControls";
 
 // Styled Components
-
 const ContentInnerWrapper = styled.div`
     padding: 120px 60px;
     box-sizing: border-box;

@@ -1,15 +1,16 @@
+// Import modules
 import React from 'react';
 import styled from 'styled-components';
-import IconButton from "../../UI/IconButton/IconButton";
 
-// Import Media
+// Local modules
+import IconButton from "@ui/IconButton";
+import LargeTitle from "@ui/LargeTitle";
+import ContactList from "@layout/ContactList";
 
-import { ReactComponent as NavigationButton } from "../../../media/icons/burger.svg";
-import LargeTitle from "../../UI/LargeTitle/LargeTitle";
-import ContactList from "../ContactList/ContactList";
+// Assets
+import { ReactComponent as NavigationButton } from "@media/icons/burger.svg";
 
 // Styled Components
-
 const SidebarWrapper = styled.div`
     background-color: #FAF9FF;
 `
@@ -27,14 +28,7 @@ const ContactListWrapper = styled.div`
     height: auto;
 `
 
-
-// Constants
-
-
-
-
 const Sidebar = ({contacts, setContacts, setSelectedContactId, removeContactFunction}) => {
-
     return (
         <SidebarWrapper>
             <SidebarHeader>

@@ -1,9 +1,9 @@
+// Import modules
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
-// Import Media
-
-import LogotypeSource from '../../../media/images/logo.png';
+// Assets
+import LogotypeSource from '@media/images/logo.png';
 
 const NavigationWrapper = styled.div`
         display:flex;
