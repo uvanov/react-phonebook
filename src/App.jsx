@@ -1,8 +1,8 @@
 import React, {useMemo, useState} from 'react';
-import Navigation from "./components/Layout/Navigation/Navigation";
+import Navigation from "./components/Layout/Navigation";
 import styled from 'styled-components';
-import Sidebar from "./components/Layout/Sidebar/Sidebar";
-import Content from "./components/Layout/Content/Content";
+import Sidebar from "./components/Layout/Sidebar";
+import Content from "./components/Layout/Content";
 
 import database from './database.json';
 
