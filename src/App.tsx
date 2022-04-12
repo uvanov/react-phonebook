@@ -1,14 +1,16 @@
-// TODO: Install and configure eslint
+// TODO: Add aliases https://habr.com/ru/post/557076/
 
 // Import modules
 import React, {useMemo, useState} from 'react';
 import styled from '@emotion/styled';
 
 // Local modules
-import { Navigation } from "@layout/Navigation";
-import { Sidebar } from "@layout/Sidebar";
-import { Content } from "@layout/Content";
+import { Navigation } from "./components/layout/Navigation";
+import { Sidebar } from "./components/layout/Sidebar";
+import { Content } from "./components/layout/Content";
 import database from './database.json';
+import {useAppDispatch, useAppSelector} from "./hooks/redux";
+import {contactsSlice} from "./store/slices/ContactsSlice";
 
 // Styled Components
 const AppLayout = styled.div`
@@ -19,26 +21,31 @@ const AppLayout = styled.div`
 
 // Exports
 export const App = () => {
-  const [contacts, setContacts] = useState(database);
-  const [selectedContactId, setSelectedContactId] = useState(0);
-  const selectedContact = useMemo(() => {
-    let user = contacts.find(contact => contact.id === selectedContactId);
+  const contacts = useAppSelector(state => state.contacts);
+  const { removeContact, addContact } = contactsSlice.actions;
+  const dispatch = useAppDispatch();
 
-    return user ? user : null;
-  }, [selectedContactId, contacts]);
-
-  // @ts-ignore
-  const removeContactFunction = (contactId) => {
-    let newContactArray = contacts.filter(contact => contact.id !== contactId);
-    setContacts(newContactArray);
-  }
+  console.log(contacts);
+  // const [contacts, setContacts] = useState(database);
+  // const [selectedContactId, setSelectedContactId] = useState(0);
+  // const selectedContact = useMemo(() => {
+  //   let user = contacts.find(contact => contact.id === selectedContactId);
+  //
+  //   return user ? user : null;
+  // }, [selectedContactId, contacts]);
+  //
+  // // @ts-ignore
+  // const removeContactFunction = (contactId) => {
+  //   let newContactArray = contacts.filter(contact => contact.id !== contactId);
+  //   setContacts(newContactArray);
+  // }
 
   return (
     <AppLayout>
-      <Navigation isOpened={true}/>
-      <Sidebar contacts={contacts} setContacts={setContacts} setSelectedContactId={setSelectedContactId}
-               removeContactFunction={removeContactFunction}/>
-      <Content selectedContact={selectedContact} removeContactFunction={removeContactFunction}/>
+      {/*<Navigation isOpened={true}/>*/}
+      {/*<Sidebar contacts={contacts} setContacts={setContacts} setSelectedContactId={setSelectedContactId}*/}
+      {/*         removeContactFunction={removeContactFunction}/>*/}
+      {/*<Content selectedContact={selectedContact} removeContactFunction={removeContactFunction}/>*/}
       {/*  Here place <Content/>, inside Content place <UserControls/> (aka header), <ContactInformation/> and <Chat/>  */}
     </AppLayout>
   );
