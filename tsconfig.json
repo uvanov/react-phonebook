@@ -7,11 +7,6 @@
       "dom.iterable",
       "esnext"
     ],
-    "paths": {
-      "@layout/*": ["components/layout/*"],
-      "@ui/*": ["components/ui/*"],
-      "@media/*": ["media/*"]
-    },
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
