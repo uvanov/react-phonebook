@@ -1,4 +1,5 @@
 # React Phonebook Application
+( At the moment migrating to Redux, can see on redux-migration branch )
 
 ![](https://i.imgur.com/czVeuG7.png)
 
