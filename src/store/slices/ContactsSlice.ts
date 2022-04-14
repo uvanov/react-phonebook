@@ -1,5 +1,8 @@
 // Import modules
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {
+  createSlice,
+  PayloadAction
+} from '@reduxjs/toolkit';
 
 // Import types
 import { ContactType } from '../../types'
@@ -35,7 +38,7 @@ const initialState: ContactsArrayType = [
 
 // Init Contact Slice
 export const contactsSlice = createSlice({
-  name: 'contact',
+  name: 'contacts',
   initialState,
   reducers: {
     removeContact(state, action: PayloadAction<{ id: number }>) {
