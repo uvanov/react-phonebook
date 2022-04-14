@@ -19,6 +19,17 @@ const initialState: ContactsArrayType = [
       phone: '0432432567'
     },
     avatarUrl: 'https://i.imgur.com/qUnfwhh.png'
+  },
+  {
+    id: 2,
+    name: 'Max',
+    status: 'UX Designer',
+    information: {
+      bio: 'Bio information',
+      email: 'maxdes@gmail.com',
+      phone: '043812237'
+    },
+    avatarUrl: 'https://i.imgur.com/5se9YXZ.png'
   }
 ];
 
