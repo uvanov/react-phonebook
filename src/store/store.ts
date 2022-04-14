@@ -4,10 +4,12 @@ import {
   combineReducers
 } from "@reduxjs/toolkit";
 import contactsReducer from "./slices/ContactsSlice";
+import navigationSlice from './slices/NavigationSlice';
 
 // Init root reducer
 const rootReducer = combineReducers({
-  contacts: contactsReducer
+  contacts: contactsReducer,
+  navigation: navigationSlice
 });
 
 // Configure store
