@@ -4,7 +4,9 @@ import styled from '@emotion/styled';
 // TODO: Добавить алёрт о недоступности звонка
 
 // Local modules
-import { IconButton } from '../ui';
+import { IconButton } from '../UI';
+import { useAppDispatch } from '../../hooks/redux';
+import { contactsSlice } from '../../store/slices/ContactsSlice';
 
 // Assets
 import { ReactComponent as MessageIcon } from '../../media/icons/message.svg';
@@ -12,7 +14,6 @@ import { ReactComponent as CallIcon } from '../../media/icons/call.svg';
 import { ReactComponent as RemoveIcon } from '../../media/icons/remove.svg';
 
 // Styled Components
-
 const ContactItemWrapper = styled.div`
   display: grid;
   grid-template-columns: 36px 3fr 2fr;
@@ -27,7 +28,7 @@ const ContactItemWrapper = styled.div`
 `;
 
 const ContactImageWrapper = styled.div`
-  position:relative;
+  position: relative;
 `;
 
 const ContactImage = styled.img`
@@ -35,10 +36,10 @@ const ContactImage = styled.img`
   border-radius: 10px;
 `;
 
-const ContactOnlineMarker = styled.div`
+const ContactOnlineMarker = styled.div<{ isOnline: boolean }>`
   width: 8px;
   height: 8px;
-  background: ${ props => (props.online ? '#28C345' : '#F6933E') };
+  background: ${({ isOnline }) => isOnline ? '#28C345' : '#F6933E' };
   border: 3px solid white;
   border-radius: 100%;
       
@@ -70,24 +71,50 @@ const ContactButtons = styled.div`
   gap: 6px;
 `;
 
+// Types
+interface Props {
+  contactId: number;
+  avatarUrl: string;
+  isOnline: boolean;
+  contactName: string;
+  contactStatus: string
+}
+
 // Exports
-export const ContactItem = ({ contactId, avatarUrl, isOnline, contactName, contactStatus, messageContact, removeContact, setSelectedContactId }) => (
-  <>
-    <ContactItemWrapper onClick={ () => setSelectedContactId(contactId) }>
-      <ContactImageWrapper>
-        <ContactImage src={ avatarUrl }/>
-        <ContactOnlineMarker online={ isOnline }/>
-      </ContactImageWrapper>
-      <ContactInformation>
-        <ContactName>{ contactName }</ContactName>
-        <ContactStatus>{ contactStatus }</ContactStatus>
-      </ContactInformation>
-      <ContactButtons>
-        <IconButton size={ 'medium' } Icon={ MessageIcon }/>
-        <IconButton size={ 'medium' } Icon={ CallIcon }/>
-        <IconButton size={ 'medium' } Icon={ RemoveIcon } onClickHandler={ () => removeContact(contactId) }/>
-      </ContactButtons>
-    </ContactItemWrapper>
-  </>
-);
+export const ContactItem: React.FC<Props> = (
+  {
+    contactId,
+    avatarUrl,
+    isOnline,
+    contactName,
+    contactStatus
+  }) => {
+
+  const dispatch = useAppDispatch();
+  const { removeContact } = contactsSlice.actions;
+
+  const removeContactHandler = (id: number) => {
+    dispatch(removeContact({ id: id }));
+  }
+
+  return (
+    <>
+      <ContactItemWrapper onClick={ () => console.log('Select contact, ContactItem') }>
+        <ContactImageWrapper>
+          <ContactImage src={ avatarUrl }/>
+          <ContactOnlineMarker isOnline={ isOnline }/>
+        </ContactImageWrapper>
+        <ContactInformation>
+          <ContactName>{ contactName }</ContactName>
+          <ContactStatus>{ contactStatus }</ContactStatus>
+        </ContactInformation>
+        <ContactButtons>
+          <IconButton size={ 'medium' } Icon={ MessageIcon }/>
+          <IconButton size={ 'medium' } Icon={ CallIcon }/>
+          <IconButton size={ 'medium' } Icon={ RemoveIcon } onClick={ () => removeContactHandler(contactId) }/>
+        </ContactButtons>
+      </ContactItemWrapper>
+    </>
+  )
+};
 

@@ -1,16 +1,19 @@
-// TODO: Add aliases https://habr.com/ru/post/557076/
+/*
+  TODO:
+    Add states:
+    - Search query
+    - Selected contact
+    - Is navigation opened
+ */
 
 // Import modules
-import React, {useMemo, useState} from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
 
 // Local modules
-import { Navigation } from "./components/layout/Navigation";
-import { Sidebar } from "./components/layout/Sidebar";
-import { Content } from "./components/layout/Content";
-import database from './database.json';
-import {useAppDispatch, useAppSelector} from "./hooks/redux";
-import {contactsSlice} from "./store/slices/ContactsSlice";
+import { Navigation } from "./components/Layout/Navigation";
+import { Sidebar } from "./components/Layout/Sidebar";
+import { Content } from "./components/Layout/Content";
 
 // Styled Components
 const AppLayout = styled.div`
@@ -21,11 +24,6 @@ const AppLayout = styled.div`
 
 // Exports
 export const App = () => {
-  const contacts = useAppSelector(state => state.contacts);
-  const { removeContact, addContact } = contactsSlice.actions;
-  const dispatch = useAppDispatch();
-
-  console.log(contacts);
   // const [contacts, setContacts] = useState(database);
   // const [selectedContactId, setSelectedContactId] = useState(0);
   // const selectedContact = useMemo(() => {
@@ -42,9 +40,8 @@ export const App = () => {
 
   return (
     <AppLayout>
-      {/*<Navigation isOpened={true}/>*/}
-      {/*<Sidebar contacts={contacts} setContacts={setContacts} setSelectedContactId={setSelectedContactId}*/}
-      {/*         removeContactFunction={removeContactFunction}/>*/}
+      <Navigation isOpened={true}/>
+      <Sidebar/>
       {/*<Content selectedContact={selectedContact} removeContactFunction={removeContactFunction}/>*/}
       {/*  Here place <Content/>, inside Content place <UserControls/> (aka header), <ContactInformation/> and <Chat/>  */}
     </AppLayout>

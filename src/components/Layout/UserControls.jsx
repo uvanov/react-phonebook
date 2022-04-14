@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 // Local modules
-import { IconButton } from '../ui';
+import { IconButton } from '../UI';
 
 // Assets
 import { ReactComponent as SearchIcon } from '../../media/icons/search.svg';

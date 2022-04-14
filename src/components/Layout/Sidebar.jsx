@@ -6,11 +6,12 @@ import styled from '@emotion/styled';
 import {
   IconButton,
   LargeTitle
-} from '../ui';
+} from '../UI';
 import { ContactList } from './ContactList';
 
 // Assets
 import { ReactComponent as NavigationButton } from '../../media/icons/burger.svg';
+
 
 // Styled Components
 const SidebarWrapper = styled.div`
@@ -33,24 +34,22 @@ const ContactListWrapper = styled.div`
 `;
 
 // Exports
-export const Sidebar = ({ contacts, setContacts, setSelectedContactId, removeContactFunction }) => (
-  <SidebarWrapper>
-    <SidebarHeader>
-      <IconButton
-        size={ 'medium' }
-        Icon={ NavigationButton }
-      />
-      <LargeTitle text={ 'Contacts' }/>
-    </SidebarHeader>
+export const Sidebar = () => {
 
-    <ContactListWrapper>
-      <ContactList
-        contacts={ contacts }
-        setContacts={ setContacts }
-        setSelectedContactId={ setSelectedContactId }
-        removeContactFunction={ removeContactFunction }
-      />
-    </ContactListWrapper>
-  </SidebarWrapper>
-);
+  return (
+    <SidebarWrapper>
+      <SidebarHeader>
+        <IconButton
+          size={ 'medium' }
+          Icon={ NavigationButton }
+        />
+        <LargeTitle text={ 'Contacts' }/>
+      </SidebarHeader>
+
+      <ContactListWrapper>
+        <ContactList/>
+      </ContactListWrapper>
+    </SidebarWrapper>
+  );
+};
 

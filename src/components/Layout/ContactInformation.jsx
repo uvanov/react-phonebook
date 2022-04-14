@@ -8,7 +8,7 @@ import {
   MessageButton,
   IconButton,
   LargeTitle
-} from '../ui/';
+} from '../UI/';
 
 // Assets
 import { ReactComponent as CallIcon } from '../../media/icons/call.svg';

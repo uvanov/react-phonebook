@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 import {
   Subtitle,
   Input
-} from '../ui';
+} from '../UI';
 
 // Styled Components
 const SearchWrapper = styled.div`

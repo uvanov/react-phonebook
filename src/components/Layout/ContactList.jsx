@@ -1,10 +1,10 @@
 // Import modules
 import React, { useMemo, useState } from 'react';
 import styled from '@emotion/styled';
-
 // Local modules
-import { ContactItem } from './ContactItem';
 import { Search } from './Search';
+import { useAppSelector } from '../../hooks/redux';
+import { ContactItem } from './ContactItem';
 import { NoContactsError } from './NoContactsError';
 
 // Styled Components
@@ -15,29 +15,31 @@ const ContactListWrapper = styled.div`
   margin-top: 20px;
 `;
 
-export const ContactList = ({ contacts, setContacts, setSelectedContactId, removeContactFunction }) => {
+export const ContactList = () => {
+  const contacts = useAppSelector(state => state.contacts);
   const [searchQuery, setSearchQuery] = useState('');
 
   // Нужно возврощать массив и его в цикл списка засунуть
 
-  const searchedContacts = useMemo(() => {
+  const preparedContactArray = useMemo(() => {
     if (searchQuery) {
-      let filteredContactsArray = contacts.filter(contact => contact.name.toLowerCase().startsWith(searchQuery.toLowerCase()));
-      return filteredContactsArray;
+      return contacts.filter(contact => contact.name.toLowerCase().startsWith(searchQuery.toLowerCase()));
     }
     return contacts;
+    // todo: Без поискового запроса контакты должны быть в алфавитном порядке
   }, [contacts, searchQuery]);
 
   return (
     <div>
       <Search setSearchQueryState={ setSearchQuery }/>
+
       {
-        searchedContacts.length
+        preparedContactArray.length
           ?
           <>
             <ContactListWrapper>
               {
-                searchedContacts.map(contact => (
+                preparedContactArray.map(contact => (
                   <ContactItem
                     key={ contact.id }
                     contactId={ contact.id }
@@ -45,8 +47,6 @@ export const ContactList = ({ contacts, setContacts, setSelectedContactId, remov
                     isOnline={ true }
                     avatarUrl={ contact.avatarUrl }
                     contactStatus={ contact.status }
-                    removeContact={ removeContactFunction }
-                    setSelectedContactId={ setSelectedContactId }
                   />
                 ))
               }

@@ -3,7 +3,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 // Local modules
-import { LargeTitle } from '../ui';
+import { LargeTitle } from '../UI';
 
 // Styled Components
 const NoContactsErrorWrapper = styled.div`

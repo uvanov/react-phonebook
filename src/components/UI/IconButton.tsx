@@ -9,7 +9,7 @@ const BUTTON_SIZE = {
 }
 
 // Styled Components
-const Button = styled.button`
+const Button = styled.button<{ size: ButtonSize }>`
   display:flex;
   justify-content:center;
   align-items:center;
@@ -32,11 +32,20 @@ const Button = styled.button`
   }
 `
 
+// Types
+type ButtonSize = 'small' | 'medium' | 'large';
+
+interface Props {
+  size: ButtonSize;
+  Icon: any;
+  onClick?: () => void;
+}
+
 // Exports
-export const IconButton = ({ size, Icon, onClickHandler }) => (
+export const IconButton: React.FC<Props> = ({ size, Icon, onClick }) => (
   <Button
     size={ size }
-    onClick={ onClickHandler }
+    onClick={ onClick ? onClick : undefined }
   >
     <Icon/>
   </Button>
