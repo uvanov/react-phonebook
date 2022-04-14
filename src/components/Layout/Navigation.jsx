@@ -22,7 +22,7 @@ const NavigationWrapper = styled.div`
   }
 `;
 
-export const Navigation = ({ isOpened }) => (
+export const Navigation = () => (
   <NavigationWrapper>
     <img src={ LogotypeSource } alt="Messenger Logotype"/>
   </NavigationWrapper>

@@ -8,10 +8,11 @@ import {
   LargeTitle
 } from '../UI';
 import { ContactList } from './ContactList';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { navigationSlice } from '../../store/slices/NavigationSlice';
 
 // Assets
 import { ReactComponent as NavigationButton } from '../../media/icons/burger.svg';
-
 
 // Styled Components
 const SidebarWrapper = styled.div`
@@ -36,12 +37,21 @@ const ContactListWrapper = styled.div`
 // Exports
 export const Sidebar = () => {
 
+  const dispatch = useAppDispatch();
+  const isAlreadyNavigationOpened = useAppSelector(state => state.navigation.isOpened);
+  const { setNavigationOpened } = navigationSlice.actions;
+
+  const navigationToggler = () => {
+    dispatch(setNavigationOpened(!isAlreadyNavigationOpened));
+  };
+
   return (
     <SidebarWrapper>
       <SidebarHeader>
         <IconButton
           size={ 'medium' }
           Icon={ NavigationButton }
+          onClick={ navigationToggler }
         />
         <LargeTitle text={ 'Contacts' }/>
       </SidebarHeader>
