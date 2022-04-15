@@ -13,14 +13,11 @@ const ContentInnerWrapper = styled.div`
 `;
 
 // Exports
-export const Content = ({ selectedContact, removeContactFunction }) => (
+export const Content = () => (
   <div>
     <UserControls/>
     <ContentInnerWrapper>
-      <ContactInformation
-        selectedContact={ selectedContact }
-        removeContactFunction={ removeContactFunction }
-      />
+      <ContactInformation/>
     </ContentInnerWrapper>
   </div>
 );

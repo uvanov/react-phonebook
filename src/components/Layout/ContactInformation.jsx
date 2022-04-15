@@ -1,5 +1,5 @@
 // Import modules
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from '@emotion/styled';
 
 // Local modules
@@ -9,6 +9,8 @@ import {
   IconButton,
   LargeTitle
 } from '../UI/';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { contactsSlice } from '../../store/slices/ContactsSlice';
 
 // Assets
 import { ReactComponent as CallIcon } from '../../media/icons/call.svg';
@@ -52,7 +54,23 @@ const ContactInformationGrid = styled.div`
 `;
 
 // Exports
-export const ContactInformation = ({ selectedContact, removeContactFunction }) => {
+export const ContactInformation = () => {
+
+  const dispatch = useAppDispatch();
+  const { removeContact } = contactsSlice.actions;
+  const selectedContactId = useAppSelector(state => state.selectedContact.id);
+  const contacts = useAppSelector(state => state.contacts);
+
+  const selectedContact = useMemo(() => {
+    let user = contacts.find(contact => contact.id === selectedContactId);
+
+    return user ? user : null;
+  }, [selectedContactId, contacts]);
+
+  const removeContactHandler = (id) => {
+    dispatch(removeContact({ id }));
+  };
+
   if (selectedContact === null) {
     return (
       <h1>Need to select contact.</h1>
@@ -67,9 +85,15 @@ export const ContactInformation = ({ selectedContact, removeContactFunction }) =
             <Subtitle text={ selectedContact.status }/>
             <HeaderButtons>
               <MessageButton/>
-              <IconButton size={ 'large' } Icon={ CallIcon }/>
-              <IconButton size={ 'large' } Icon={ RemoveIcon }
-                          onClickHandler={ () => removeContactFunction(selectedContact.id) }/>
+              <IconButton
+                size={ 'large' }
+                Icon={ CallIcon }
+              />
+              <IconButton
+                size={ 'large' }
+                Icon={ RemoveIcon }
+                onClickHandler={ () => removeContactHandler(selectedContact.id) }
+              />
             </HeaderButtons>
           </HeaderInformation>
         </Header>

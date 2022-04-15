@@ -4,14 +4,16 @@ import styled from '@emotion/styled';
 // TODO: Добавить алёрт о недоступности звонка
 
 // Local modules
-import { IconButton } from '../UI';
-import { useAppDispatch } from '../../hooks/redux';
-import { contactsSlice } from '../../store/slices/ContactsSlice';
+import {IconButton} from '../UI';
+import {useAppDispatch} from '../../hooks/redux';
+import {contactsSlice} from '../../store/slices/ContactsSlice';
+import {selectedContactSlice} from "../../store/slices/SelectedContactSlice";
 
 // Assets
-import { ReactComponent as MessageIcon } from '../../media/icons/message.svg';
-import { ReactComponent as CallIcon } from '../../media/icons/call.svg';
-import { ReactComponent as RemoveIcon } from '../../media/icons/remove.svg';
+import {ReactComponent as MessageIcon} from '../../media/icons/message.svg';
+import {ReactComponent as CallIcon} from '../../media/icons/call.svg';
+import {ReactComponent as RemoveIcon} from '../../media/icons/remove.svg';
+
 
 // Styled Components
 const ContactItemWrapper = styled.div`
@@ -39,7 +41,7 @@ const ContactImage = styled.img`
 const ContactOnlineMarker = styled.div<{ isOnline: boolean }>`
   width: 8px;
   height: 8px;
-  background: ${({ isOnline }) => isOnline ? '#28C345' : '#F6933E' };
+  background: ${({isOnline}) => isOnline ? '#28C345' : '#F6933E'};
   border: 3px solid white;
   border-radius: 100%;
       
@@ -92,29 +94,42 @@ export const ContactItem: React.FC<Props> = (
 
   const dispatch = useAppDispatch();
   const { removeContact } = contactsSlice.actions;
+  const { setSelectedContactId } = selectedContactSlice.actions;
 
   const removeContactHandler = (id: number) => {
-    dispatch(removeContact({ id: id }));
-  }
+    dispatch(removeContact({ id }));
+  };
+
+  const setSelectedContactHandler = () => {
+    dispatch(setSelectedContactId({ id: contactId }));
+  };
 
   return (
-    <>
-      <ContactItemWrapper onClick={ () => console.log('Select contact, ContactItem') }>
-        <ContactImageWrapper>
-          <ContactImage src={ avatarUrl }/>
-          <ContactOnlineMarker isOnline={ isOnline }/>
-        </ContactImageWrapper>
-        <ContactInformation>
-          <ContactName>{ contactName }</ContactName>
-          <ContactStatus>{ contactStatus }</ContactStatus>
-        </ContactInformation>
-        <ContactButtons>
-          <IconButton size={ 'medium' } Icon={ MessageIcon }/>
-          <IconButton size={ 'medium' } Icon={ CallIcon }/>
-          <IconButton size={ 'medium' } Icon={ RemoveIcon } onClick={ () => removeContactHandler(contactId) }/>
-        </ContactButtons>
-      </ContactItemWrapper>
-    </>
+    <ContactItemWrapper onClick={ setSelectedContactHandler }>
+      <ContactImageWrapper>
+        <ContactImage src={ avatarUrl }/>
+        <ContactOnlineMarker isOnline={ isOnline }/>
+      </ContactImageWrapper>
+      <ContactInformation>
+        <ContactName>{ contactName }</ContactName>
+        <ContactStatus>{ contactStatus }</ContactStatus>
+      </ContactInformation>
+      <ContactButtons>
+        <IconButton
+          size={ 'medium' }
+          Icon={ MessageIcon }
+        />
+        <IconButton
+          size={ 'medium' }
+          Icon={ CallIcon }
+        />
+        <IconButton
+          size={ 'medium' }
+          Icon={ RemoveIcon }
+          onClick={ () => removeContactHandler(contactId) }
+        />
+      </ContactButtons>
+    </ContactItemWrapper>
   )
 };
 

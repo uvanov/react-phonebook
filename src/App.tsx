@@ -25,20 +25,12 @@ const AppLayout = styled.div<{ openNavigation: boolean }>`
 export const App = () => {
 
   const isNavigationOpened = useAppSelector(state => state.navigation.isOpened);
-  // const [selectedContactId, setSelectedContactId] = useState(0);
-  // const selectedContact = useMemo(() => {
-  //   let user = contacts.find(contact => contact.id === selectedContactId);
-  //
-  //   return user ? user : null;
-  // }, [selectedContactId, contacts]);
-  //
 
   return (
     <AppLayout openNavigation={ isNavigationOpened }>
       <Navigation/>
       <Sidebar/>
-      {/*<Content selectedContact={selectedContact} removeContactFunction={removeContactFunction}/>*/}
-      {/*  Here place <Content/>, inside Content place <UserControls/> (aka header), <ContactInformation/> and <Chat/>  */}
+      <Content/>
     </AppLayout>
   );
 };
