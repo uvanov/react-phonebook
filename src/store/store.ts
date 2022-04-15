@@ -6,12 +6,14 @@ import {
 import contactsReducer from "./slices/ContactsSlice";
 import navigationSlice from './slices/NavigationSlice';
 import searchSlice from "./slices/SearchSlice";
+import selectedContactSlice from './slices/SelectedContactSlice'
 
 // Init root reducer
 const rootReducer = combineReducers({
   contacts: contactsReducer,
   navigation: navigationSlice,
-  search: searchSlice
+  search: searchSlice,
+  selectedContact: selectedContactSlice,
 });
 
 // Configure store
