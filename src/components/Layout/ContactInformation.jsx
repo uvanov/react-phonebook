@@ -92,7 +92,7 @@ export const ContactInformation = () => {
               <IconButton
                 size={ 'large' }
                 Icon={ RemoveIcon }
-                onClickHandler={ () => removeContactHandler(selectedContact.id) }
+                onClick={ () => removeContactHandler(selectedContact.id) }
               />
             </HeaderButtons>
           </HeaderInformation>
