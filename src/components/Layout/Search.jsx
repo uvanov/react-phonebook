@@ -7,6 +7,8 @@ import {
   Subtitle,
   Input
 } from '../UI';
+import { useAppDispatch } from "../../hooks/redux";
+import { searchSlice } from "../../store/slices/SearchSlice";
 
 // Styled Components
 const SearchWrapper = styled.div`
@@ -15,16 +17,22 @@ const SearchWrapper = styled.div`
   gap: 20px;
 `
 
-export const Search = ({ setSearchQueryState }) => {
+export const Search = () => {
+
+  const dispatch = useAppDispatch();
+  const { setSearchQuery } = searchSlice.actions;
 
   const changeHandler = (event) => {
-    setSearchQueryState(event.target.value)
-  }
+    dispatch(setSearchQuery({ query: event.target.value }));
+  };
 
   return (
     <SearchWrapper>
-      <Subtitle text={"Search for a contact"}/>
-      <Input placeholder={"Contact name..."} onChange={changeHandler}/>
+      <Subtitle text={ "Search for a contact" }/>
+      <Input
+        placeholder={ "Contact name..." }
+        onChange={ changeHandler }
+      />
     </SearchWrapper>
   );
 };

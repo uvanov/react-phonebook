@@ -1,9 +1,7 @@
 /*
   TODO:
     Add states:
-    - Search query
     - Selected contact
-    - Is navigation opened
  */
 
 // Import modules
@@ -11,10 +9,10 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 // Local modules
-import {Navigation} from "./components/Layout/Navigation";
-import {Sidebar} from "./components/Layout/Sidebar";
-import {Content} from "./components/Layout/Content";
-import {useAppSelector} from "./hooks/redux";
+import { Navigation } from "./components/Layout/Navigation";
+import { Sidebar } from "./components/Layout/Sidebar";
+import { Content } from "./components/Layout/Content";
+import { useAppSelector } from "./hooks/redux";
 
 // Styled Components
 const AppLayout = styled.div<{ openNavigation: boolean }>`

@@ -17,21 +17,21 @@ const ContactListWrapper = styled.div`
 
 export const ContactList = () => {
   const contacts = useAppSelector(state => state.contacts);
-  const [searchQuery, setSearchQuery] = useState('');
+  const searchQuery = useAppSelector(state => state.search.query);
 
   // Нужно возврощать массив и его в цикл списка засунуть
 
   const preparedContactArray = useMemo(() => {
     if (searchQuery) {
       return contacts.filter(contact => contact.name.toLowerCase().startsWith(searchQuery.toLowerCase()));
-    }
+    };
     return contacts;
     // todo: Без поискового запроса контакты должны быть в алфавитном порядке
   }, [contacts, searchQuery]);
 
   return (
     <div>
-      <Search setSearchQueryState={ setSearchQuery }/>
+      <Search/>
 
       {
         preparedContactArray.length
