@@ -16,14 +16,14 @@ const initialState: InitialStateType = {
 };
 
 // Init Selected Contact Slice
-export const selectedContact = createSlice({
+export const selectedContactSlice = createSlice({
   name: 'selectedContact',
   initialState,
   reducers: {
-    setId(state, action: PayloadAction<{ id: number }>){
+    setSelectedContactId(state, action: PayloadAction<{ id: number }>){
       state.id = action.payload.id;
     }
   }
 });
 
-export default selectedContact.reducer;
+export default selectedContactSlice.reducer;
