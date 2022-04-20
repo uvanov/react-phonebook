@@ -1,5 +1,5 @@
 // Import modules
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import styled from '@emotion/styled';
 // Local modules
 import { Search } from './Search';
