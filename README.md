@@ -1,5 +1,4 @@
 # React Phonebook Application
-( At the moment migrating to Redux, can see on redux-migration branch )
 
 ![](https://i.imgur.com/czVeuG7.png)
 
@@ -16,5 +15,5 @@ I think phonebook is more interesting.
 - Possibility to open chat with contacts
 - Handle user's try to call with some error-alert. 
 
-I'm hope someday rework it with Redux :)
+I'm hope someday rework it with Redux :) (21.04.22 / We migrated to TS + Redux ) 
 
